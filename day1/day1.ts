@@ -25,4 +25,16 @@ const elfCarryingMostCalories: ElfCarryingMostCalories = (elves) =>
 
 const file = await Deno.readTextFile('./day1/input.txt')
 const mostCalories = elfCarryingMostCalories(elvesFromText(file))
+
 console.log(mostCalories)
+
+type SumOfTopThree = (elves: number[][]) => number;
+
+const sumOfTopThree: SumOfTopThree = (elves) =>
+    elves
+        .map(totalCaloriesCarried)
+        .sort((a, b) => a - b)
+        .slice(-3)
+        .reduce((sum, current) => sum + current, 0)
+
+console.log(sumOfTopThree(elvesFromText(file)))
