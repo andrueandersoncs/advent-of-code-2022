@@ -10,7 +10,6 @@ const elvesFromText: ElvesFromText = text =>
                 .split('\n')
                 .map(Number))
 
-
 type TotalCaloriesCarried = (snackList: number[]) => number
 
 const totalCaloriesCarried: TotalCaloriesCarried = snackList =>
